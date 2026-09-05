@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SimplyLogged — Simple apps for home, car, and pet</title>
+  <meta name="description" content="SimplyLogged is the home of HomeLog, VehicleLog, and PetLog. Simple apps to keep the important parts of everyday life organized.">
+  <link rel="canonical" href="https://hilarich-maker.github.io/log-pages/simplylogged/">
+  <link rel="icon" href="assets/simplylogged-logo.png" type="image/png">
+  <meta name="theme-color" content="#148F93">
+  <meta property="og:title" content="SimplyLogged">
+  <meta property="og:description" content="Simple apps to keep the important parts of everyday life organized.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hilarich-maker.github.io/log-pages/simplylogged/">
+  <meta property="og:image" content="https://hilarich-maker.github.io/log-pages/simplylogged/assets/simplylogged-logo.png">
+  <meta name="twitter:card" content="summary">
+  <style>
+    :root {
+      --bg: #f4faf9;
+      --surface: #ffffff;
+      --text: #14383a;
+      --muted: #4a6a6c;
+      --teal: #148f93;
+      --teal-dark: #0e6e72;
+      --aqua: #2bb8b3;
+      --soft: #e6f4f3;
+      --border: #d5e8e7;
+      --shadow: 0 8px 24px rgba(20, 56, 58, 0.06);
+      --radius: 1.15rem;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .wrap {
+      width: min(36rem, 100%);
+      margin: 0 auto;
+      padding:
+        max(1.5rem, env(safe-area-inset-top))
+        max(1.15rem, env(safe-area-inset-right))
+        max(2.25rem, env(safe-area-inset-bottom))
+        max(1.15rem, env(safe-area-inset-left));
+    }
+
+    .hero {
+      text-align: center;
+      padding: 0.25rem 0 1.75rem;
+    }
+
+    .logo {
+      display: block;
+      width: 128px;
+      height: auto;
+      margin: 0 auto 0.35rem;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.4rem;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--teal-dark);
+    }
+
+    .tagline {
+      margin: 0 0 0.85rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    .support {
+      margin: 0 auto 1rem;
+      max-width: 22rem;
+      color: var(--muted);
+    }
+
+    .life-line {
+      margin: 0;
+      color: var(--teal);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .apps {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.15rem 1.1rem 1.2rem;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .emoji {
+      flex: 0 0 2.75rem;
+      width: 2.75rem;
+      height: 2.75rem;
+      display: grid;
+      place-items: center;
+      border-radius: 0.85rem;
+      background: var(--soft);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.28rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--teal-dark);
+    }
+
+    .card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .stores {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.7rem 1rem;
+      border-radius: 0.85rem;
+      font-size: 0.98rem;
+      font-weight: 650;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--teal-dark);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--teal-dark);
+      border: 1.5px solid var(--teal);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: var(--soft);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--aqua);
+      outline-offset: 2px;
+    }
+
+    .trust {
+      margin-top: 1.6rem;
+      text-align: center;
+      padding: 1.25rem 0.5rem 0.25rem;
+    }
+
+    .trust h2 {
+      margin: 0 0 0.85rem;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: var(--teal-dark);
+    }
+
+    .trust ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.45rem;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    footer {
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--teal-dark);
+      font-size: 1rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (min-width: 480px) {
+      .logo { width: 144px; }
+      .hero h1 { font-size: 2rem; }
+      .stores {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <img
+        class="logo"
+        src="assets/simplylogged-logo.png"
+        alt="SimplyLogged logo"
+        width="1254"
+        height="1254"
+      >
+      <h1>SimplyLogged</h1>
+      <p class="tagline">Life gets busy. Keep it simple.</p>
+      <p class="support">Simple apps to keep the important parts of everyday life organized.</p>
+      <p class="life-line">🏠 Home • 🚗 Car • 🐾 Pet</p>
+    </header>
+
+    <main>
+      <section class="apps" aria-label="SimplyLogged apps">
+        <article class="card">
+          <div class="card-top">
+            <div class="emoji" aria-hidden="true">🏠</div>
+            <h2>HomeLog</h2>
+          </div>
+          <p>Keep home items, documents, warranties, maintenance records and reminders organized.</p>
+          <div class="stores">
+            <a class="btn btn-primary" href="https://apps.apple.com/il/app/homelog-organizer/id6789863706" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+            <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.hilarichany.homelog" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <div class="emoji" aria-hidden="true">🚗</div>
+            <h2>VehicleLog</h2>
+          </div>
+          <p>Keep vehicle records, maintenance, documents, service history and reminders organized.</p>
+          <div class="stores">
+            <a class="btn btn-primary" href="https://apps.apple.com/il/app/vehiclelog-organizer/id6791876833" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+            <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.hilarichany.vehiclelog" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <div class="emoji" aria-hidden="true">🐾</div>
+            <h2>PetLog</h2>
+          </div>
+          <p>Keep pet health records, vaccinations, medications, documents and reminders organized.</p>
+          <div class="stores">
+            <a class="btn btn-primary" href="https://apps.apple.com/il/app/petlog-organizer/id6793123455" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+            <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.hilarichany.petlog" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="trust" aria-labelledby="trust-heading">
+        <h2 id="trust-heading">Simple. Private. Offline.</h2>
+        <ul>
+          <li>✓ No account required</li>
+          <li>✓ Works offline</li>
+          <li>✓ Your data stays on your device</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <strong>SimplyLogged</strong>
+      <p>HomeLog • VehicleLog • PetLog</p>
+    </footer>
+  </div>
+</body>
+</html>
